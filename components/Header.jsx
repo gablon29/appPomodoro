@@ -15,9 +15,12 @@ const Header = ({ setTime, setCurrentTime, currentTime }) => {
         <TouchableOpacity
           onPress={() => handlePress(index)}
           key={index}
-          style={styles.optionStyle}
+          style={[
+            styles.optionStyle,
+            currentTime !== index && { borderColor: "transparent" },
+          ]}
         >
-          <Text>{opcion}</Text>
+          <Text style={{ fontWeight: "bold" }}>{opcion}</Text>
         </TouchableOpacity>
       ))}
     </View>
@@ -34,6 +37,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
   },
   optionStyle: {
+    width: "30%",
     justifyContent: "center",
+    alignItems: "center",
+    borderWidth: 2,
+    borderColor: "red",
+    borderRadius: 10,
   },
 });
