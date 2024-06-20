@@ -10,6 +10,7 @@ import {
 import Header from "../components/Header";
 import Timers from "../components/Timers";
 import { Audio } from "expo-av";
+import InputCom from "../components/InputCom";
 
 const colors = ["#E39C59", "#59E3A2", "#59B9E3"];
 
@@ -62,6 +63,7 @@ const YourApp = () => {
         </TouchableOpacity>
         <Timers time={time} />
       </View>
+      <InputCom />
     </SafeAreaView>
   );
 };
