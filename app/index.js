@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -18,6 +18,18 @@ const YourApp = () => {
   const [time, setTime] = useState(25 * 60);
   const [currentTime, setCurrentTime] = useState("POMO" | "SHORT" | "LONG");
   const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    let intervalo = null;
+    if (isActive) {
+      intervalo = setInterval(() => {
+        setTime(time - 1);
+      }, 1000);
+    } else {
+      clearInterval(intervalo);
+    }
+    return () => clearInterval(intervalo);
+  }, [isActive, time]);
 
   const handleSartStop = () => {
     setIsActive(!isActive);
